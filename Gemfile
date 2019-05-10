@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# database_cleaner
+group :test do
+  gem 'database_cleaner'
+end
 # rspec
 group :development, :test do
   gem 'rspec-rails', '~> 3.8'
