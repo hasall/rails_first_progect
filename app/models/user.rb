@@ -4,4 +4,7 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :reviews, as: :reviewable, dependent: :destroy
   #has_many :own_reviews, class: 'Review', dependent: :destroy
+  validates_associated :city
+
+
 end

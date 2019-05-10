@@ -5,7 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+# rspec
+group :development, :test do
+  gem 'rspec-rails', '~> 3.8'
+end
+# factory_bot_rails
+group :development, :test do
+  gem 'factory_bot_rails'
+end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.7'
 # Use postgresql as the database for Active Record
@@ -39,6 +46,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  # Or, run against the master branch
+  # (requires master-branch versions of all related RSpec libraries)
 end
 
 group :development do

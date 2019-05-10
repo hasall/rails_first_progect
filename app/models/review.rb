@@ -1,28 +1,20 @@
-class MyValidator < ActiveModel::Validator
-  def validate(record)
-    user = record.user_id #Користувач який залишає відгук
-    reviewable_type = record.reviewable_type
-    reviewable_id = record.reviewable_id 
-
-    if reviewable_type = "Item" #Якщо ми даємо відгук для предмета
-      #Ми знаходимо усі записи бронювань де той хто пише відгук є тим хто бронював цей предмет
-      p = Booking.where("user_id = '#{user}' and item_id = '#{reviewable_id}'")
-      record.errors[:base] << "You didnt book this item" if p.empty?
-    else #reviewable_type = "User"
-      #Ми знаходимо усі записи бронювань де той хто пише відгук є тим хто бронював будь який предмет цієї людини
-      p = Booking.joins(:item).where("items.user_id = '#{reviewable_id}' and user_id = '#{user}'")
-      record.errors[:base] << "You didnt book any item this user" if p.empty?
-    end
-  end
-end
+require('MyValidator_validator')
 
 class Review < ApplicationRecord
   belongs_to :user
   belongs_to :reviewable, polymorphic: true
-
+  #belongs_to :item, -> { where( reviews: { reviewable_type: "Item" } ).joins(:reviews) }, foreing_key: 'reviewable_id'
   validates_with MyValidator
+  validates_associated :user
+  validates :reviewable_id, presence: true
+  validates :reviewable_type, inclusion: { in: %w(Item User),
+    message: "%{value} is not a valid size" }
 
   scope :from_item_by_user_id, ->(user_id) {
-    joins("JOIN items on items.id = reviewable_id JOIN users on items.user_id = users.id").where("reviewable_type = 'Item' and users.id = '#{user_id}'")
+    joins("JOIN items on items.id = reviewable_id").where("reviewable_type = 'Item' and items.user_id = #{user_id} " )
+    #joins(item: {reviewable_id: :id} :user).where(reviewable_type: 'Item', item: {user_id: '#{user_id}'})
   }
+
+
+
 end
