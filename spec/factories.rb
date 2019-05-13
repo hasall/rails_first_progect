@@ -24,10 +24,8 @@ FactoryBot.define do
   end
 
   factory :review do
-    message { 'textitem1' }
+    message { 'textitem' }
     association :user
-    reviewable_type { 'Item' }
-    reviewable_id { 1 }
   end
 
 end
