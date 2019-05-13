@@ -1,4 +1,4 @@
-class MyValidator < ActiveModel::Validator
+class ReviewValidator < ActiveModel::Validator
   def validate(record)
     user = record.user_id
     reviewable_type = record.reviewable_type
@@ -7,7 +7,7 @@ class MyValidator < ActiveModel::Validator
     record.errors[:base] << "Data errors" if user == nil
     record.errors[:base] << "Data errors" if reviewable_type != "Item" && reviewable_type != "User"
     record.errors[:base] << "Data errors" if reviewable_id == nil
-    
+
     if reviewable_type == "Item" #Якщо ми даємо відгук для предмета
       #Ми знаходимо усі записи бронювань де той хто пише відгук є тим хто бронював цей предмет
       p = Booking.where("user_id = '#{user}' and item_id = '#{reviewable_id}'")
