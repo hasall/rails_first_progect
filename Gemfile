@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'apitome'
+gem 'rspec_api_documentation'
 gem 'pagy'
 # database_cleaner
 group :test do
