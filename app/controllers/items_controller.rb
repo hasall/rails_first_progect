@@ -5,8 +5,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    p = Item.where(id: params[:id])
-    render json: p
+    item = Item.find(params[:id])
+    render json: item
   end
 
   def create
@@ -15,24 +15,24 @@ class ItemsController < ApplicationController
   end
 
   def update
-    p
-    p = Item.find(params[:id])
-    # p.name = params[:name] if params[:name] != nil
-    p.update(name: params[:name]) if params[:name] != nil
-    render json: ['item' => 'update']
+# {
+#"item" : {"name" : "myname"}
+# }
+    redirect_to current_account.item.find(params[:id]).tap { |item|
+      item.update!(item_params)
+    }
+    render json: item
   end
 
   def destroy
-    p = Item.where(id: params[:id])
-    p.destroy_all
-    
+    item = Item.find(params[:id])
+    item.destroy_all
     head :ok
-    # render json: ['item' => 'destroy']
   end
 
   private
 
   def item_params
-
+    params.require(:item).permit(:name, :user_id)
   end
 end
