@@ -12,22 +12,14 @@ RSpec.describe Review, type: :model do
   let!(:booking1) { create(:booking, item: item1,  user: user2) }
   let!(:booking2) { create(:booking, item: item2,  user: user1) }
 
-<<<<<<< HEAD
-  let!(:review4) { create(:review, reviewable: item1, user: user2) }
-  let!(:review5) { create(:review, reviewable: item2, user: user1) }
-  describe 'Validator' do
+  describe 'test validator' do
+    let!(:review1) { create(:review, reviewable: item1, user: user2) }
+    let!(:review2) { build(:review, reviewable: item1, user: user1) }
+    let!(:review3) { build(:review, reviewable: user3, user: user1) }
+
     it 'reviews valid' do
 
       expect(review1).to be_valid
-=======
-  let!(:review1) { create(:review, reviewable: item1, user: user2) }
-  let!(:review2) { build(:review, reviewable: item1, user: user1) }
-  let!(:review3) { build(:review, reviewable: user3, user: user1) }
-
-  let!(:review4) { create(:review, reviewable: item1, user: user2) }
-  let!(:review5) { create(:review, reviewable: item2, user: user1) }
->>>>>>> a0931509fea0707e70fc0daa7c42774be4d7c970
-
       expect(review2).to_not be_valid
       expect(review2.errors[:base]).to eq(['You didnt book this item'])
 
@@ -35,20 +27,13 @@ RSpec.describe Review, type: :model do
       expect(review3.errors[:base]).to eq(['You didnt book any item this user'])
     end
   end
-<<<<<<< HEAD
   describe '.from_item_by_user_id' do
     let!(:review1) { create(:review, reviewable: item1, user: user2) }
-    let!(:review2) { build(:review, reviewable: item1, user: user1) }
-    let!(:review3) { build(:review, reviewable: user3, user: user1) }
-    it 'all review for item specific user' do
-      expect(described_class.from_item_by_user_id(user2.id)).to eq( [review5] )
-      expect(described_class.from_item_by_user_id(user1.id)).to eq( [review1, review4] )
-    end
-=======
+    let!(:review2) { create(:review, reviewable: item1, user: user2) }
+    let!(:review3) { create(:review, reviewable: item2, user: user1) }
 
-  it "all review for item specific user" do
-    expect(described_class.from_item_by_user_id(user2.id)).to eq( [review5] )
-    expect(described_class.from_item_by_user_id(user1.id)).to eq( [review1, review4] )
->>>>>>> a0931509fea0707e70fc0daa7c42774be4d7c970
-  end
+    it 'all review for item specific user' do
+      expect(described_class.from_item_by_user_id(user2.id)).to eq( [review3] )
+      expect(described_class.from_item_by_user_id(user1.id)).to eq( [review1, review2] )
+    end
 end
