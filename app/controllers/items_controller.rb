@@ -3,11 +3,7 @@
 # My comment
 class ItemsController < ApplicationController
   def index
-    if params[:page] != '0'
-      _pagy, items = pagy(Item.all.order(:id), items: 5, page: params[:page])
-    else
-      items = Item.all.order(:id)
-    end
+    _pagy, items = pagy(Item.all, items: 5, page: params[:page])
     render json: items
   end
 
@@ -17,8 +13,10 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item = Item.create(user: User.first, name: params[:name])
-    render json: item
+    item = Item.new(user: User.first, name: params[:name])
+    return render json: item if item.save
+
+    render json: { errors: item.errors }
   end
 
   def update

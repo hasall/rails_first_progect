@@ -17,7 +17,7 @@ resource 'Items' do
   get '/items/:id' do
     let(:item) { create(:item) }
     let(:id) { item.id }
-    
+
     example_request 'Get item' do
       response_hash = JSON.parse(response_body)
 
