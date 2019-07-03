@@ -1,6 +1,22 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
+  factory :itemfiltervalue do
+    
+  end
+
+  factory :filtervalue do
+    
+  end
+
+  factory :category do
+    
+  end
+
+  factory :filter do
+    
+  end
+
 
   factory :city do
     name { 'test' }
@@ -24,10 +40,8 @@ FactoryBot.define do
   end
 
   factory :review do
-    message { 'textitem1' }
+    message { 'textitem' }
     association :user
-    reviewable_type { 'Item' }
-    reviewable_id { 1 }
   end
 
 end
