@@ -1,0 +1,41 @@
+{
+  "resource": "Items",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/items/:id",
+  "description": "Get item",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/items/1",
+      "request_body": null,
+      "request_headers": {
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"id\": 1,\n  \"name\": \"item test\",\n  \"user_id\": 1,\n  \"created_at\": \"2019-05-14T13:40:02.747Z\",\n  \"updated_at\": \"2019-05-14T13:40:02.747Z\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"444b1677d86ce06c80a75c5bc7316859\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "d08c5119-c97a-4236-b0cf-cb92c47de2e3",
+        "X-Runtime": "0.012532",
+        "Content-Length": "119"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

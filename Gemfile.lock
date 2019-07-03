@@ -40,6 +40,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    apitome (0.3.0)
+      kramdown
+      railties
     arel (8.0.0)
     bindex (0.7.0)
     builder (3.2.3)
@@ -80,6 +83,7 @@ GEM
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    kramdown (2.1.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -94,9 +98,11 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     multi_json (1.13.1)
+    mustache (1.1.0)
     nio4r (2.3.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
+    pagy (3.2.0)
     pg (1.1.4)
     public_suffix (3.0.3)
     puma (3.12.1)
@@ -131,6 +137,10 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     regexp_parser (1.4.0)
+    rspec (3.8.0)
+      rspec-core (~> 3.8.0)
+      rspec-expectations (~> 3.8.0)
+      rspec-mocks (~> 3.8.0)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.3)
@@ -148,6 +158,10 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
+    rspec_api_documentation (6.1.0)
+      activesupport (>= 3.0.0)
+      mustache (~> 1.0, >= 0.99.4)
+      rspec (~> 3.0)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
     sass (3.7.4)
@@ -201,6 +215,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  apitome
   byebug
   capybara (>= 2.15)
   coffee-rails (~> 4.2)
@@ -208,10 +223,12 @@ DEPENDENCIES
   factory_bot_rails
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  pagy
   pg (>= 0.18, < 2.0)
   puma (~> 3.7)
   rails (~> 5.1.7)
   rspec-rails (~> 3.8)
+  rspec_api_documentation
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

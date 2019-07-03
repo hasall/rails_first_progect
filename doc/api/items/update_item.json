@@ -1,0 +1,46 @@
+{
+  "resource": "Items",
+  "resource_explanation": null,
+  "http_method": "PATCH",
+  "route": "/items/:id",
+  "description": "Update item",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "item",
+      "name": "name",
+      "description": ""
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/items/4",
+      "request_body": "item[name]=item+test",
+      "request_headers": {
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"id\": 4,\n  \"name\": \"item test\",\n  \"user_id\": 3,\n  \"created_at\": \"2019-05-14T13:40:02.845Z\",\n  \"updated_at\": \"2019-05-14T13:40:02.845Z\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"d52815a9df21186d61c0f29dc917d273\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "18958144-2a7f-4a60-86eb-1749a23e780b",
+        "X-Runtime": "0.019459",
+        "Content-Length": "119"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

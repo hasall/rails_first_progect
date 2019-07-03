@@ -1,0 +1,45 @@
+{
+  "resources": [
+    {
+      "name": "Items",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Create item",
+          "link": "items/create_item.json",
+          "groups": "all",
+          "route": "/items",
+          "method": "post"
+        },
+        {
+          "description": "Destroy item",
+          "link": "items/destroy_item.json",
+          "groups": "all",
+          "route": "/items/:id",
+          "method": "delete"
+        },
+        {
+          "description": "Get item",
+          "link": "items/get_item.json",
+          "groups": "all",
+          "route": "/items/:id",
+          "method": "get"
+        },
+        {
+          "description": "Getting a list of items",
+          "link": "items/getting_a_list_of_items.json",
+          "groups": "all",
+          "route": "/items",
+          "method": "get"
+        },
+        {
+          "description": "Update item",
+          "link": "items/update_item.json",
+          "groups": "all",
+          "route": "/items/:id",
+          "method": "patch"
+        }
+      ]
+    }
+  ]
+}
