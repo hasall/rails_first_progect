@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190507122315) do
+ActiveRecord::Schema.define(version: 20190515122647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,10 +26,41 @@ ActiveRecord::Schema.define(version: 20190507122315) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "filters", force: :cascade do |t|
+    t.string "name"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_filters_on_category_id"
+  end
+
+  create_table "filtervalues", force: :cascade do |t|
+    t.string "value"
+    t.bigint "filter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["filter_id"], name: "index_filtervalues_on_filter_id"
+  end
+
+  create_table "itemfiltervalues", id: false, force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "filtervalue_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["filtervalue_id"], name: "index_itemfiltervalues_on_filtervalue_id"
+    t.index ["item_id"], name: "index_itemfiltervalues_on_item_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -59,4 +90,6 @@ ActiveRecord::Schema.define(version: 20190507122315) do
     t.index ["city_id"], name: "index_users_on_city_id"
   end
 
+  add_foreign_key "itemfiltervalues", "filtervalues"
+  add_foreign_key "itemfiltervalues", "items"
 end

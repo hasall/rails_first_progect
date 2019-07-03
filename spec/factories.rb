@@ -1,6 +1,22 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
+  factory :itemfiltervalue do
+    
+  end
+
+  factory :filtervalue do
+    
+  end
+
+  factory :category do
+    
+  end
+
+  factory :filter do
+    
+  end
+
 
   factory :city do
     name { 'test' }
