@@ -7,6 +7,8 @@ end
 
 gem 'apitome'
 gem 'rspec_api_documentation'
+
+
 gem 'pagy'
 # database_cleaner
 group :test do

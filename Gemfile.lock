@@ -43,6 +43,7 @@ GEM
     apitome (0.3.0)
       kramdown
       railties
+    api-pagination (4.8.2)
     arel (8.0.0)
     bindex (0.7.0)
     builder (3.2.3)
