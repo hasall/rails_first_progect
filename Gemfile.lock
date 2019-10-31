@@ -43,7 +43,6 @@ GEM
     apitome (0.3.0)
       kramdown
       railties
-    api-pagination (4.8.2)
     arel (8.0.0)
     bindex (0.7.0)
     builder (3.2.3)
@@ -101,7 +100,7 @@ GEM
     multi_json (1.13.1)
     mustache (1.1.0)
     nio4r (2.3.1)
-    nokogiri (1.10.3)
+    nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     pagy (3.2.0)
     pg (1.1.4)
