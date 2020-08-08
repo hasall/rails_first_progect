@@ -43,7 +43,6 @@ GEM
     apitome (0.3.0)
       kramdown
       railties
-    api-pagination (4.8.2)
     arel (8.0.0)
     bindex (0.7.0)
     builder (3.2.3)
@@ -84,7 +83,8 @@ GEM
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
-    kramdown (2.1.0)
+    kramdown (2.3.0)
+      rexml
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -138,6 +138,7 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     regexp_parser (1.4.0)
+    rexml (3.2.4)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
